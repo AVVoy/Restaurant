@@ -1,15 +1,15 @@
-package ad;
+package main.java.ad;
 
 
-import statistic.StatisticManager;
-import statistic.event.VideoSelectedEventDataRow;
+import main.java.statistic.StatisticManager;
+import main.java.statistic.event.VideoSelectedEventDataRow;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdvertisementManager {
     private final AdvertisementStorage storage = AdvertisementStorage.getInstance();
-    private int timeSeconds;
+    private final int timeSeconds;
 
     public AdvertisementManager(int timeSeconds) {
         this.timeSeconds = timeSeconds;
@@ -17,7 +17,7 @@ public class AdvertisementManager {
 
     public void processVideos() {
         this.totalTimeSecondsLeft = Integer.MAX_VALUE;
-        obtainOptimalVideoSet(new ArrayList<Advertisement>(), timeSeconds, 0l);
+        obtainOptimalVideoSet(new ArrayList<>(), timeSeconds, 0L);
 
         VideoSelectedEventDataRow row = new VideoSelectedEventDataRow(optimalVideoSet, maxAmount, timeSeconds - totalTimeSecondsLeft);
         StatisticManager.getInstance().register(row);

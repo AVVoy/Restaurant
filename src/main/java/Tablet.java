@@ -1,17 +1,18 @@
-import ad.AdvertisementManager;
-import ad.NoVideoAvailableException;
-import kitchen.Order;
-import kitchen.TestOrder;
+package main.java;
+
+import main.java.ad.AdvertisementManager;
+import main.java.ad.NoVideoAvailableException;
+import main.java.kitchen.Order;
+import main.java.kitchen.TestOrder;
 
 import java.io.IOException;
-import java.util.Observable;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Tablet {
     private final int number;
-    private static Logger logger = Logger.getLogger(Tablet.class.getName());
+    private static final Logger logger = Logger.getLogger(Tablet.class.getName());
     private LinkedBlockingQueue<Order> queue;
 
     public void setQueue(LinkedBlockingQueue<Order> queue) {
@@ -34,16 +35,15 @@ public class Tablet {
         }
     }
 
-    private boolean processOrder(Order order) {
+    private void processOrder(Order order) {
         ConsoleHelper.writeMessage(order.toString());
         if (order.isEmpty())
-            return true;
+            return;
 
 //        queue.offer(order);
         queue.add(order);
 
         new AdvertisementManager(order.getTotalCookingTime() * 60).processVideos();
-        return false;
     }
 
     public void createTestOrder() {

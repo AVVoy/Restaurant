@@ -1,11 +1,11 @@
-package ad;
+package main.java.ad;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticAdvertisementManager {
     private static final StatisticAdvertisementManager manager = new StatisticAdvertisementManager();
-    private AdvertisementStorage storage = AdvertisementStorage.getInstance();
+    private final AdvertisementStorage storage = AdvertisementStorage.getInstance();
 
     public static StatisticAdvertisementManager getInstance() {
         return manager;

@@ -1,7 +1,8 @@
-package kitchen;
+package main.java.kitchen;
 
-import statistic.StatisticManager;
-import statistic.event.CookedOrderEventDataRow;
+import main.java.ConsoleHelper;
+import main.java.statistic.StatisticManager;
+import main.java.statistic.event.CookedOrderEventDataRow;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -30,8 +31,8 @@ public class Cook implements Runnable {
         CookedOrderEventDataRow row = new CookedOrderEventDataRow(order.getTablet().toString(), name, order.getTotalCookingTime() * 60, order.getDishes());
         StatisticManager.getInstance().register(row);
         try {
-            Thread.sleep(order.getTotalCookingTime() * 10);
-        } catch (InterruptedException e) {
+            Thread.sleep(order.getTotalCookingTime() * 10L);
+        } catch (InterruptedException ignored) {
         }
         busy = false;
     }
@@ -53,7 +54,7 @@ public class Cook implements Runnable {
 
                 }
             }
-        } catch (InterruptedException e) {
+        } catch (InterruptedException ignored) {
         }
     }
 }

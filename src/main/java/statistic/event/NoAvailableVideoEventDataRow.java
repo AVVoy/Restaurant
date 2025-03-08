@@ -1,15 +1,15 @@
-package statistic.event;
+package main.java.statistic.event;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class NoAvailableVideoEventDataRow implements EventDataRow {
 
-    private int totalDuration;
-    private Date currentDate;
+    private final int totalDuration;
+    private final LocalDate currentDate;
 
     public NoAvailableVideoEventDataRow(int totalDuration){
         this.totalDuration = totalDuration;
-        currentDate = new Date();
+        currentDate = LocalDate.now();
     }
 
     @Override
@@ -18,7 +18,7 @@ public class NoAvailableVideoEventDataRow implements EventDataRow {
     }
 
     @Override
-    public Date getDate() {
+    public LocalDate getDate() {
         return currentDate;
     }
 

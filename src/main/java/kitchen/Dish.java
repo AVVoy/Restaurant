@@ -1,4 +1,4 @@
-package kitchen;
+package main.java.kitchen;
 
 public enum Dish {
     FISH(25),
@@ -7,7 +7,7 @@ public enum Dish {
     JUICE(5),
     WATER(3);
 
-    private int duration;
+    private final int duration;
 
     public int getDuration() {
         return duration;
@@ -18,15 +18,15 @@ public enum Dish {
     }
 
     public static String allDishesToString() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         for (Dish dish : Dish.values()) {
-            if ("".equals(result)) {
-                result += dish.name();
+            if (result.isEmpty()) {
+                result.append(dish.name());
             } else {
-                result += ", " + dish.name();
+                result.append(", ").append(dish.name());
             }
         }
-        return result;
+        return result.toString();
     }
 }

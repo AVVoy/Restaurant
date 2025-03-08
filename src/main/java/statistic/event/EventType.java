@@ -1,4 +1,4 @@
-package statistic.event;
+package main.java.statistic.event;
 
 public enum EventType {
     COOKED_ORDER,

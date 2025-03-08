@@ -1,8 +1,10 @@
+package main.java;
+
 import java.util.List;
 
 public class RandomOrderGeneratorTask implements Runnable {
-    private List<Tablet> tablets;
-    private int interval;
+    private final List<Tablet> tablets;
+    private final int interval;
 
     public RandomOrderGeneratorTask(List<Tablet> tablets, int interval) {
         this.tablets = tablets;
@@ -18,7 +20,7 @@ public class RandomOrderGeneratorTask implements Runnable {
                 expected.createTestOrder();
                 Thread.sleep(interval);
             }
-        } catch (InterruptedException e) {
+        } catch (InterruptedException ignored) {
         }
     }
 }

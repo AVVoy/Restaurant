@@ -1,4 +1,6 @@
-import kitchen.Dish;
+package main.java;
+
+import main.java.kitchen.Dish;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConsoleHelper {
-    private static BufferedReader bis = new BufferedReader(new InputStreamReader(System.in));
+    private static final BufferedReader bis = new BufferedReader(new InputStreamReader(System.in));
 
     public static void writeMessage(String message) {
         System.out.println(message);

@@ -1,5 +1,7 @@
-package kitchen;
+package main.java.kitchen;
 
+
+import main.java.Tablet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ public class TestOrder extends Order {
         super(tablet);
     }
 
-    protected void initDishes() throws IOException {
+    protected void initDishes() {
         this.dishes = new ArrayList<>();
 
         Dish[] values = Dish.values();

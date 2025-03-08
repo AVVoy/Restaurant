@@ -1,10 +1,10 @@
-package statistic.event;
+package main.java.statistic.event;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public interface EventDataRow {
     EventType getType();
-    Date getDate();
+    LocalDate getDate();
     int getTime();
 
 }

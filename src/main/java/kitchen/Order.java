@@ -1,4 +1,7 @@
-package kitchen;
+package main.java.kitchen;
+
+import main.java.ConsoleHelper;
+import main.java.Tablet;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,20 +26,19 @@ public class Order {
     public Order(Tablet tablet) throws IOException {
         this.tablet = tablet;
         initDishes();
-        ConsoleHelper.writeMessage(toString());
     }
 
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        if (dishes.size() == 0) return result.toString();
-        result.append("Your order: [" + dishes.get(0));
+        if (dishes.isEmpty()) return result.toString();
+        result.append("Your order: [").append(dishes.getFirst());
 
         for (int i = 1; i < dishes.size(); i++) {
-            result.append(", " + dishes.get(i).name());
+            result.append(", ").append(dishes.get(i).name());
         }
-        result.append("] of " + tablet);
-        result.append(", cooking time " + getTotalCookingTime() + "min");
+        result.append("] of ").append(tablet);
+        result.append(", cooking time ").append(getTotalCookingTime()).append("min");
         return result.toString();
     }
 

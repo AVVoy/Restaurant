@@ -1,22 +1,22 @@
-package statistic.event;
+package main.java.statistic.event;
 
 
-import ad.Advertisement;
+import main.java.ad.Advertisement;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class VideoSelectedEventDataRow implements EventDataRow {
     private List<Advertisement> optimalVideoSet;
-    private long amount;
-    private int totalDuration;
+    private final long amount;
+    private final int totalDuration;
 
-    private Date currentDate;
+    private final LocalDate currentDate;
     public VideoSelectedEventDataRow(List<Advertisement> optimalVideoSet, long amount, int totalDuration) {
         this.optimalVideoSet =optimalVideoSet;
         this.amount =amount;
         this.totalDuration = totalDuration;
-        currentDate = new Date();
+        currentDate = LocalDate.now();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class VideoSelectedEventDataRow implements EventDataRow {
     }
 
     @Override
-    public Date getDate() {
+    public LocalDate getDate() {
         return currentDate;
     }
 

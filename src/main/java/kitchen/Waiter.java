@@ -1,4 +1,6 @@
-package kitchen;
+package main.java.kitchen;
+
+import main.java.ConsoleHelper;
 
 import java.util.Observable;
 import java.util.Observer;

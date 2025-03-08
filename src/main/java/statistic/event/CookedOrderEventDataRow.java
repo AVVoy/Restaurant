@@ -1,24 +1,20 @@
-package statistic.event;
+package main.java.statistic.event;
 
-import kitchen.Dish;
+import main.java.kitchen.Dish;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class CookedOrderEventDataRow implements EventDataRow{
 
-    private String tabletName;
-    private String cookName;
-    private int cookingTimeSeconds;
-    private  List<Dish> cookingDishes;
-    private Date currentDate;
+    private final String cookName;
+    private final int cookingTimeSeconds;
+    private final LocalDate currentDate;
 
     public CookedOrderEventDataRow(String tabletName, String cookName, int cookingTimeSeconds, List<Dish> cookingDishes){
-        this.tabletName = tabletName;
         this.cookName = cookName;
         this.cookingTimeSeconds = cookingTimeSeconds;
-        this.cookingDishes = cookingDishes;
-        currentDate = new Date();
+        currentDate = LocalDate.now();
     }
 
     @Override
@@ -27,7 +23,7 @@ public class CookedOrderEventDataRow implements EventDataRow{
     }
 
     @Override
-    public Date getDate() {
+    public LocalDate getDate() {
         return currentDate;
     }
 

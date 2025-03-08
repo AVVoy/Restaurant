@@ -1,4 +1,4 @@
-package ad;
+package main.java.ad;
 
 import java.util.ArrayList;
 import java.util.List;
